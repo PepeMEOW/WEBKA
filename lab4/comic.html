@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
+    <link rel="shortcut icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\iconn.jpg" type="image/x-icon">
+    <title>Соловьев Алексей Валентинович</title>
+
+    <style>
+        div {
+            width: 270px;
+            height: 70px;
+            line-height: 70%;
+            text-align: center;
+            background-color: white;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            border-radius: 50%;
+        }
+
+        main {
+            position: relative;
+        }
+
+        .block1 {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            left: 420px;
+            top: -720px;
+            z-index: 2;
+        }
+
+        .block2 {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 370px;
+            top: -670px;
+            z-index: 1;
+        }
+
+        .block3 {
+            position: absolute;
+            left: 450px;
+            top: -740px;
+            z-index: 3;
+        }
+
+        .thought {
+            position: absolute;
+            background-color: white;
+            border: 2px solid darkgreen;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+    </style>
+
+</head>
+    <body>
+        <p>
+            <img src="photo.jpg" height="700">
+        </p>
+
+        <main>
+            <div class="block1"></div>
+            <div class="block2"></div>
+            <div class="thought block3">S.W.A.G.</div>
+        </main>
+
+        <footer>
+            &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
+        </footer>
+    </body>
+</html>
