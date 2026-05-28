@@ -25,13 +25,20 @@ footer {
     margin: 0px;
 }
 
+a{
+    color: darksalmon;
+    text-decoration: none;
+    transition: 3s 5s;
+}
+
 a:hover{
     color: aqua;
     text-decoration: underline;
+    transition: 0.3s;
 }
 
 a:ative{
-    color: pink;
+    color: magenta;
     opacity: 0.3;
 }
 
@@ -40,5 +47,8 @@ a:link{
 }
 
 a:visited{
-    color: pink;
+    color: yellow;
 }
+
+
+
