@@ -24,3 +24,21 @@ footer {
     font-family: Arial;
     margin: 0px;
 }
+
+a:hover{
+    color: aqua;
+    text-decoration: underline;
+}
+
+a:ative{
+    color: pink;
+    opacity: 0.3;
+}
+
+a:link{
+    color: rebeccapurple;
+}
+
+a:visited{
+    color: pink;
+}
