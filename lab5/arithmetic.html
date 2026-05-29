@@ -8,46 +8,155 @@
     <link rel="icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\photo_5242615177071499852_y.jpg" type="image/x-icon">
 
     <script>
-        // Функция для нахождения суммы (Задание 5)
         function showSum() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
-            
+
+            inputA.style.color = "";
+            inputA.style.borderColor = "";
+            inputB.style.color = "";
+            inputB.style.borderColor = "";
+
+            if (inputA.value === "" || isNaN(inputA.value)) {
+                alert("Ошибка ввода: первое значение должно быть числом!");
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                inputA.focus();
+                inputA.select();
+                return;
+            }
+
+            if (inputB.value === "" || isNaN(inputB.value)) {
+                alert("Ошибка ввода: второе значение должно быть числом!");
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputB.focus();
+                inputB.select();
+                return;
+            }
+
             let a = parseInt(inputA.value);
-            let b = parseInt(inputB.value); // Исправлена синтаксическая ошибка с ";"
+            let b = parseInt(inputB.value);
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
 
-        // Функция для нахождения разности (Самостоятельное задание)
         function showDifference() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
-            
+
+            inputA.style.color = "";
+            inputA.style.borderColor = "";
+            inputB.style.color = "";
+            inputB.style.borderColor = "";
+
+            if (inputA.value === "" || isNaN(inputA.value)) {
+                alert("Ошибка ввода: первое значение должно быть числом!");
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                inputA.focus();
+                inputA.select();
+                return;
+            }
+
+            if (inputB.value === "" || isNaN(inputB.value)) {
+                alert("Ошибка ввода: второе значение должно быть числом!");
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputB.focus();
+                inputB.select();
+                return;
+            }
+
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a - b;
             alert('Разность ' + a + ' и ' + b + ' равна ' + result);
         }
 
-        // Функция для нахождения произведения (Самостоятельное задание)
         function showProduct() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
-            
+
+            inputA.style.color = "";
+            inputA.style.borderColor = "";
+            inputB.style.color = "";
+            inputB.style.borderColor = "";
+
+            if (inputA.value === "" || isNaN(inputA.value)) {
+                alert("Ошибка ввода: первое значение должно быть числом!");
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                inputA.focus();
+                inputA.select();
+                return;
+            }
+
+            if (inputB.value === "" || isNaN(inputB.value)) {
+                alert("Ошибка ввода: второе значение должно быть числом!");
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputB.focus();
+                inputB.select();
+                return;
+            }
+
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a * b;
             alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
         }
 
-        // Функция вывода автора страницы (Задание 6)
+        // НОВАЯ ФУНКЦИЯ ДЛЯ ОТНОШЕНИЯ ЧИСЕЛ (Задание 10)
+        function showDivision() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            inputA.style.color = "";
+            inputA.style.borderColor = "";
+            inputB.style.color = "";
+            inputB.style.borderColor = "";
+
+            if (inputA.value === "" || isNaN(inputA.value)) {
+                alert("Ошибка ввода: первое значение должно быть числом!");
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                inputA.focus();
+                inputA.select();
+                return;
+            }
+
+            if (inputB.value === "" || isNaN(inputB.value)) {
+                alert("Ошибка ввода: второе значение должно быть числом!");
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputB.focus();
+                inputB.select();
+                return;
+            }
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+
+            // Проверка частного случая — деление на ноль
+            if (b === 0) {
+                alert("Ошибка: нельзя делить на ноль! Введите другое второе число.");
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputB.focus();
+                inputB.select();
+                return;
+            }
+
+            let result = a / b;
+            alert('Отношение ' + a + ' к ' + b + ' равно ' + result);
+        }
+
         function showAuthor(){
             let author = 'Автор страницы: \nСоловьев Алексей Валентинович';
             alert(author);
         }
 
-        // Функция приветствия для подвала (Задание 6)
         function showWelcome() {
             alert("Приветствую вас на моей странице!\nДевиз: Через тернии к звёздам.");
         }
@@ -82,6 +191,14 @@
         footer {
             cursor: help;
         }
+
+        input {
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -100,6 +217,7 @@
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
         <div class="message" onclick="showDifference()">Найти разность чисел</div>
         <div class="message" onclick="showProduct()">Найти произведение</div>
+        <div class="message" onclick="showDivision()">Найти отношение чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
     
