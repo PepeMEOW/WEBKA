@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Соловьев Алексей — ЛР №4 Дополнительное задание</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="icon" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .concept-card {
+            position: relative;
+            width: 220px;
+            height: 300px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                        box-shadow 0.4s ease, 
+                        border-color 0.4s ease;
+        }
+
+        .card-image-wrapper {
+            width: 100%;
+            height: 180px;
+            background: #f7f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #eee;
+            transition: height 0.4s ease;
+        }
+
+        .card-image-wrapper img {
+            max-width: 70%;
+            max-height: 70%;
+            object-fit: contain;
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 25px 10px 10px 10px;
+            transition: color 0.4s ease, margin 0.4s ease;
+        }
+
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .card-info p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* ЭФФЕКТ ПРИ НАВЕДЕНИИ МЫШИ */
+        .concept-card:hover {
+            transform: scale(1.12);
+            box-shadow: 0 15px 35px rgba(44, 62, 80, 0.2);
+            border-color: #3498db;
+            z-index: 10;
+        }
+
+        .concept-card:hover .card-image-wrapper {
+            height: 100px;
+        }
+
+        .concept-card:hover .card-title {
+            color: #3498db;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .concept-card:hover .card-info {
+            transform: translateY(0);
+            opacity: 1;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <hr>
+        НГТУ, ФБ, Лабораторная работа 4 — Дополнительное задание
+        <hr>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; margin-top: 30px; color: #2c3e50;">10 ключевых концепций Web-разработки</h1>
+        
+        <div class="cards-container">
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5">
+                </div>
+                <div class="card-title">HTML5</div>
+                <div class="card-info">
+                    <p>Язык разметки, создающий каркас веб-страниц. Пятая версия принесла новые семантические теги и поддержку мультимедиа элементов.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3">
+                </div>
+                <div class="card-title">CSS3</div>
+                <div class="card-info">
+                    <p>Отвечает за внешний вид, стили и анимацию. Позволяет разделять смысловую структуру документа и его визуальное представление.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+                </div>
+                <div class="card-title">JavaScript</div>
+                <div class="card-info">
+                    <p>Мультипарадигменный язык программирования, добавляющий интерактивность, динамику и логику работы на стороне клиента.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="Nginx">
+                </div>
+                <div class="card-title">Nginx</div>
+                <div class="card-info">
+                    <p>Высокопроизводительный HTTP-сервер и прокси-сервер. Славится стабильностью, низким потреблением ресурсов и высокой скоростью.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="Git">
+                </div>
+                <div class="card-title">Git</div>
+                <div class="card-info">
+                    <p>Распределенная система контроля версий. Позволяет отслеживать историю изменений в файлах и вести совместную разработку кода.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968322.png" alt="Node.js">
+                </div>
+                <div class="card-title">Node.js</div>
+                <div class="card-info">
+                    <p>Программная платформа, транслирующая язык JavaScript в машинный код, позволяя использовать JS на стороне бэкенда.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React">
+                </div>
+                <div class="card-title">React</div>
+                <div class="card-info">
+                    <p>JavaScript-библиотека с открытым исходным кодом для создания пользовательских интерфейсов на основе компонентного подхода.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968313.png" alt="MySQL">
+                </div>
+                <div class="card-title">MySQL</div>
+                <div class="card-info">
+                    <p>Свободная реляционная система управления базами данных. Использует структурированный язык запросов SQL для работы с таблицами.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/10108/10108209.png" alt="API">
+                </div>
+                <div class="card-title">REST API</div>
+                <div class="card-info">
+                    <p>Архитектурный стиль взаимодействия компонентов систем посредством обмена данными по стандартному сетевому протоколу HTTP.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" alt="Docker">
+                </div>
+                <div class="card-title">Docker</div>
+                <div class="card-info">
+                    <p>Программное обеспечение для автоматизации развёртывания и управления приложениями в средах с поддержкой контейнеризации.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Соловьев Алексей, ФБИ-41 2 курс, 2026
+    </footer>
+</body>
+</html>
