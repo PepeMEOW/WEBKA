@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
+        <link rel="shortcut icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\iconn.jpg" type="image/x-icon">
+        <title>Корзина</title>
+    </head>
+
+    <style>
+        .cart {
+            border: 2px solid black;  
+            padding: 20px;             
+            width: 300px;             
+            margin: 50px auto;         
+            text-align: left;   
+        }
+    </style>
+
+    <body >
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+        
+            <main class="cart">
+                <h2>Корзина товаров</h2>
+
+                <label>Арбузы (50р/шт):
+                    <input type="number" min="0" placeholder="кол-во" id="prod1">
+                </label><br>
+
+                <label>Бананы (60р/шт):
+                    <input type="number" min="0" placeholder="кол-во" id="prod2">
+                </label><br>
+
+                <label>Огурцы (70р/шт):
+                    <input type="number" min="0" placeholder="кол-во" id="prod3">
+                </label><br>
+
+                <label>Помидоры (80р/шт):
+                    <input type="number" min="0" placeholder="кол-во" id="prod4">
+                </label><br><br>
+
+                <button onclick="calc()">Рассчитать</button>
+                <button onclick="clearCart()">Очистить</button>
+
+                <div id="result"></div>
+            </main>
+
+        <footer>
+            &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
+        </footer>
+
+        <script>
+        function calc() {
+            let prod1 = +document.getElementById('prod1').value || 0;
+            let prod2 = +document.getElementById('prod2').value || 0;
+            let prod3 = +document.getElementById('prod3').value || 0;
+            let prod4 = +document.getElementById('prod4').value || 0;
+            let sum = prod1*50 + prod2*60 + prod3*70 + prod4*80;
+
+            document.getElementById('result').innerText =
+                "Итого к оплате: " + sum + " руб.";
+        }
+
+        function clearCart() {
+            document.getElementById('prod1').value = "";
+            document.getElementById('prod2').value = "";
+            document.getElementById('prod3').value = "";
+            document.getElementById('prod4').value = "";
+
+            document.getElementById('result').innerText = "";
+        }
+        </script>
+    </body>
+
+</html>
