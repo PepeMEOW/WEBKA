@@ -3,29 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Соловьев Алексей Валентинович. Лабораторные работы по WEB-программированию</title>
+    <title>Соловьев Алексей Валентинович. Лабораторные работы по WEB-программированию</title>
     <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
     <link rel="icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\photo_5242615177071499852_y.jpg" type="image/x-icon">
 
     <script>
+        // Функция для нахождения суммы (Задание 5)
         function showSum() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
             
             let a = parseInt(inputA.value);
-            let b = parseInt(inputB.value);
+            let b = parseInt(inputB.value); // Исправлена синтаксическая ошибка с ";"
             let result = a + b;
-            alert('Сумма' + a + 'и' + b + 'равна' + result);
+            alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
+
+        // Функция для нахождения разности (Самостоятельное задание)
+        function showDifference() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+        }
+
+        // Функция для нахождения произведения (Самостоятельное задание)
+        function showProduct() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
+        }
+
+        // Функция вывода автора страницы (Задание 6)
         function showAuthor(){
             let author = 'Автор страницы: \nСоловьев Алексей Валентинович';
             alert(author);
         }
 
+        // Функция приветствия для подвала (Задание 6)
         function showWelcome() {
-            alert("Приветствую вас на моей странице!Девиз: Через тернии к звёздам.");
+            alert("Приветствую вас на моей странице!\nДевиз: Через тернии к звёздам.");
         }
-
     </script>
 
     <style>
@@ -41,13 +66,18 @@
             box-sizing: border-box;         
             font-family: Arial, sans-serif; 
             color: #2c3e50;                 
-            vertical-align: top;            
+            vertical-align: top;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .message:hover {
+            background-color: #e2eaf0;
         }
 
         header {
             cursor: pointer;
         }
-
 
         footer {
             cursor: help;
@@ -55,24 +85,27 @@
     </style>
 </head>
 <body>
-    <header onclick="showAuthor()" style="cursor: pointer;">
+    <header onclick="showAuthor()">
         <hr>
-                НГТУ, ФБ, Лабораторная работа 5
-                <hr>
+        НГТУ, ФБ, Лабораторная работа 5
+        <hr>
     </header>
 
     <main>
-        <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
-        <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
-        <div class="message" onclick="showSum()">Найти сумму чисел</div>
-        <div class="message" onclick="showAuthor()">Узнать,кто автор страницы</div>
+        <div style="margin: 20px 10px;">
+            <label>Первое число: <input type="number" value="5154" id="numberA"></label><br><br>
+            <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+        </div>
 
+        <div class="message" onclick="showSum()">Найти сумму чисел</div>
+        <div class="message" onclick="showDifference()">Найти разность чисел</div>
+        <div class="message" onclick="showProduct()">Найти произведение</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
     
-    <footer ondblclick="showWelcome()" style="cursor: help;">
+    <footer ondblclick="showWelcome()">
          <hr>
-                &copy; Соловьев Алексей, ФБИ-41 2 курс, 2026
+         &copy; Соловьев Алексей, ФБИ-41 2 курс, 2026
     </footer>
-
 </body>
 </html>
