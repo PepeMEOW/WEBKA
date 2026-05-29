@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Круги</title>
+        <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
+        <link rel="shortcut icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\iconn.jpg" type="image/x-icon">
+
+        <style>
+            body {
+                height: 100vh;
+                position: relative;
+            }
+            .circle {
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                color: white;
+                text-align: center;
+                line-height: 80px;
+                cursor: pointer;
+                transition: 0.5s;
+            }
+            .hide {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                line-height: 0;
+            }
+        </style>
+    </head>
+
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+        <body>
+            <button onclick="resetCircles()">Показать все</button>
+
+            <div class="circle" style="background:red; top:10%; left:10%;" onclick="hide(this)">1</div>
+            <div class="circle" style="background:blue; top:20%; left:40%;" onclick="hide(this)">2</div>
+            <div class="circle" style="background:green; top:50%; left:20%;" onclick="hide(this)">3</div>
+            <div class="circle" style="background:orange; top:30%; left:70%;" onclick="hide(this)">4</div>
+            <div class="circle" style="background:purple; top:60%; left:60%;" onclick="hide(this)">5</div>
+            <div class="circle" style="background:pink; top:70%; left:30%;" onclick="hide(this)">6</div>
+            <div class="circle" style="background:brown; top:40%; left:50%;" onclick="hide(this)">7</div>
+            <div class="circle" style="background:cyan; top:15%; left:75%;" onclick="hide(this)">8</div>
+            <div class="circle" style="background:magenta; top:80%; left:50%;" onclick="hide(this)">9</div>
+            <div class="circle" style="background:gray; top:65%; left:10%;" onclick="hide(this)">10</div>
+
+            <script>
+            function hide(el) {
+                el.classList.add("hide");
+            }
+            function resetCircles() {
+                let circles = document.querySelectorAll(".circle");
+                circles.forEach(c => c.classList.remove("hide"));
+            }
+            </script>
+
+        </body>
+
+    <footer>
+        &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
+    </footer>
+
+</html>
