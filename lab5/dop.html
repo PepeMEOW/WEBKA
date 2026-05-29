@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Соловьев Алексей — Управление таблицей</title>
+    <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
+    <link rel="icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\photo_5242615177071499852_y.jpg" type="image/x-icon">
+    
+    <script>
+        // Объект для хранения скрытого контента строк
+        let rowBackup = {};
+
+        function toggleRow(btn, rowIndex) {
+            let row = document.getElementById('row-' + rowIndex);
+            let cells = row.getElementsByClassName('data-cell');
+
+            if (btn.innerText === "Скрыть") {
+                // Массив для сохранения текста ячеек перед удалением
+                rowBackup[rowIndex] = [];
+                for (let cell of cells) {
+                    rowBackup[rowIndex].push(cell.innerHTML); // Сохраняем контент
+                    cell.innerHTML = ""; // Очищаем ячейку
+                }
+                btn.innerText = "Показать";
+            } else {
+                // Восстанавливаем контент из бэкапа
+                for (let i = 0; i < cells.length; i++) {
+                    cells[i].innerHTML = rowBackup[rowIndex][i];
+                }
+                btn.innerText = "Скрыть";
+            }
+        }
+
+        function toggleTable() {
+            let table = document.getElementById('mainTable');
+            let mainBtn = document.getElementById('tableToggleBtn');
+            
+            if (table.style.display !== "none") {
+                table.style.display = "none";
+                mainBtn.innerText = "Показать всю таблицу";
+            } else {
+                table.style.display = "table";
+                mainBtn.innerText = "Скрыть всю таблицу";
+            }
+        }
+    </script>
+
+    <style>
+        main { padding: 20px; font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f6f9; }
+        button { padding: 5px 10px; cursor: pointer; border-radius: 4px; border: 1px solid #3498db; background: #fff; color: #3498db; }
+        button:hover { background: #3498db; color: #fff; }
+        .btn-main { padding: 10px 15px; margin-bottom: 10px; background: #2ecc71; color: white; border: none; font-weight: bold; }
+        .btn-main:hover { background: #27ae60; }
+    </style>
+</head>
+<body>
+    <header onclick="alert('Автор: Соловьев Алексей')"><hr>НГТУ, ФБ, ЛР 5 — Дополнительное задание<hr></header>
+    
+    <main>
+        <button id="tableToggleBtn" class="btn-main" onclick="toggleTable()">Скрыть всю таблицу</button>
+
+        <table id="mainTable">
+            <thead>
+                <tr>
+                    <th>Услуга / Товар</th>
+                    <th>Цена</th>
+                    <th>Срок выполнения</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="row-1">
+                    <td class="data-cell">Разработка Landing Page</td>
+                    <td class="data-cell">15 000 руб.</td>
+                    <td class="data-cell">5 дней</td>
+                    <td><button onclick="toggleRow(this, 1)">Скрыть</button></td>
+                </tr>
+                <tr id="row-2">
+                    <td class="data-cell">Создание интернет-магазина</td>
+                    <td class="data-cell">45 000 руб.</td>
+                    <td class="data-cell">14 дней</td>
+                    <td><button onclick="toggleRow(this, 2)">Скрыть</button></td>
+                </tr>
+                <tr id="row-3">
+                    <td class="data-cell">Интеграция с базами данных SQL</td>
+                    <td class="data-cell">20 000 руб.</td>
+                    <td class="data-cell">7 дней</td>
+                    <td><button onclick="toggleRow(this, 3)">Скрыть</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer><hr>&copy; Соловьев Алексей, ФБИ-41 2 курс, 2026</footer>
+</body>
+</html>
