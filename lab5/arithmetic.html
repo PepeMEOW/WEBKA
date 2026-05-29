@@ -14,6 +14,14 @@
             let result = a + b;
             alert('Сумма' + a + 'и' + b + 'равна' + result);
         }
+        function showAuthor(){
+            let author = 'Автор страницы: \nСоловьев Алексей Валентинович';
+            alert(author);
+        }
+
+        function showWelcome() {
+    alert("Приветствую вас на моей странице!Девиз: Через тернии к звёздам.");
+}
 
     </script>
 
@@ -32,10 +40,19 @@
             color: #2c3e50;                 
             vertical-align: top;            
         }
+
+        header {
+            cursor: pointer;
+        }
+
+
+        footer {
+            cursor: help;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header onclick="showAuthor()" style="cursor: pointer;">
         <hr>
                 НГТУ, ФБ, Лабораторная работа 5
                 <hr>
@@ -43,11 +60,11 @@
 
     <main>
         <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать,кто автор страницы</div>
+        <div class="message" onclick="showAuthor()">Узнать,кто автор страницы</div>
 
     </main>
     
-    <footer>
+    <footer ondblclick="showWelcome()" style="cursor: help;">
          <hr>
                 &copy; Соловьев Алексей, ФБИ-41 2 курс, 2026
     </footer>
