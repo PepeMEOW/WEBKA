@@ -107,7 +107,6 @@
             alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
         }
 
-        // НОВАЯ ФУНКЦИЯ ДЛЯ ОТНОШЕНИЯ ЧИСЕЛ (Задание 10)
         function showDivision() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
@@ -138,7 +137,6 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
 
-            // Проверка частного случая — деление на ноль
             if (b === 0) {
                 alert("Ошибка: нельзя делить на ноль! Введите другое второе число.");
                 inputB.style.color = "red";
@@ -150,6 +148,42 @@
 
             let result = a / b;
             alert('Отношение ' + a + ' к ' + b + ' равно ' + result);
+        }
+
+        // НОВАЯ ФУНКЦИЯ ДЛЯ ВОЗВЕДЕНИЯ В СТЕПЕНЬ
+        function showExponentiation() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            inputA.style.color = "";
+            inputA.style.borderColor = "";
+            inputB.style.color = "";
+            inputB.style.borderColor = "";
+
+            if (inputA.value === "" || isNaN(inputA.value)) {
+                alert("Ошибка ввода: первое значение должно быть числом!");
+                inputA.style.color = "red";
+                inputA.style.borderColor = "red";
+                inputA.focus();
+                inputA.select();
+                return;
+            }
+
+            if (inputB.value === "" || isNaN(inputB.value)) {
+                alert("Ошибка ввода: второе значение должно быть числом!");
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputB.focus();
+                inputB.select();
+                return;
+            }
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            
+            // Вычисление степени: первое число в степени второго
+            let result = a ** b; 
+            alert('Число ' + a + ' в степени ' + b + ' равно ' + result);
         }
 
         function showAuthor(){
@@ -218,6 +252,7 @@
         <div class="message" onclick="showDifference()">Найти разность чисел</div>
         <div class="message" onclick="showProduct()">Найти произведение</div>
         <div class="message" onclick="showDivision()">Найти отношение чисел</div>
+        <div class="message" onclick="showExponentiation()">Возвести в степень</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
     
