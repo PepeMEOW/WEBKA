@@ -2,74 +2,181 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Соловьев Алексей — Фильтры</title>
+    <title>Соловьев Алексей — Интерактивные фильтры</title>
     <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
     <link rel="icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\photo_5242615177071499852_y.jpg" type="image/x-icon">
     
     <script>
-        function blurChange() {
-            let slider = document.getElementById('blurValue');
+        // Единая функция для применения всех фильтров одновременно
+        function applyFilters() {
             let img = document.getElementById('targetImg');
-            let textOutput = document.getElementById('blurText');
-            
-            let val = slider.value + 'px';
-            
-            textOutput.innerText = val;
-            img.style.filter = 'blur(' + val + ')';
+
+            // 1. Получаем значения всех ползунков
+            let blurVal = document.getElementById('blurValue').value + 'px';
+            let brightVal = document.getElementById('brightnessValue').value + '%';
+            let contrastVal = document.getElementById('contrastValue').value + '%';
+            let grayVal = document.getElementById('grayscaleValue').value + '%';
+            let hueVal = document.getElementById('hueRotateValue').value + 'deg';
+            let invertVal = document.getElementById('invertValue').value + '%';
+            let saturateVal = document.getElementById('saturateValue').value + '%';
+            let sepiaVal = document.getElementById('sepiaValue').value + '%';
+
+            // 2. Обновляем текстовые значения на странице
+            document.getElementById('blurText').innerText = blurVal;
+            document.getElementById('brightnessText').innerText = brightVal;
+            document.getElementById('contrastText').innerText = contrastVal;
+            document.getElementById('grayscaleText').innerText = grayVal;
+            document.getElementById('hueRotateText').innerText = hueVal;
+            document.getElementById('invertText').innerText = invertVal;
+            document.getElementById('saturateText').innerText = saturateVal;
+            document.getElementById('sepiaText').innerText = sepiaVal;
+
+            // 3. Строим общую строку CSS-фильтров и применяем к картинке
+            img.style.filter = 
+                'blur(' + blurVal + ') ' +
+                'brightness(' + brightVal + ') ' +
+                'contrast(' + contrastVal + ') ' +
+                'grayscale(' + grayVal + ') ' +
+                'hue-rotate(' + hueVal + ') ' +
+                'invert(' + invertVal + ') ' +
+                'saturate(' + saturateVal + ') ' +
+                'sepia(' + sepiaVal + ')';
         }
     </script>
 
     <style>
         main {
             padding: 20px;
-            text-align: center;
-        }
-        .controls-wrapper {
-            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
             font-family: Arial, sans-serif;
-            font-size: 16px;
         }
-        input[type="range"] {
-            vertical-align: middle;
+        .controls-panel {
+            background: #fcfcfc;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            width: 380px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .filter-row {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .filter-row label {
+            width: 120px;
+            font-size: 14px;
+            color: #333;
+        }
+        .filter-row input[type="range"] {
+            width: 180px;
             margin: 0 10px;
-            width: 200px;
         }
-        #blurText {
+        .filter-row span {
+            width: 50px;
+            text-align: right;
             font-weight: bold;
             color: #3498db;
+            font-size: 14px;
         }
-        .image-container {
-            margin: 0 auto;
+        .image-panel {
             max-width: 600px;
             border: 2px solid #ccc;
             padding: 10px;
             background: #fff;
             border-radius: 8px;
+            align-self: flex-start;
         }
-        .image-container img {
+        .image-panel img {
             max-width: 100%;
             height: auto;
             display: block;
             border-radius: 4px;
+            transition: filter 0.1s ease;
         }
+        .reset-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .reset-btn:hover { background-color: #c0392b; }
     </style>
 </head>
 <body>
     <header onclick="alert('Автор: Соловьев Алексей')">
         <hr>
-        НГТУ, ФБ, ЛР 5 — Фильтры
+        НГТУ, ФБ, ЛР 5 — Лаборатория CSS-фильтров
         <hr>
     </header>
     
     <main>
-        <div class="controls-wrapper">
-            <label for="blurValue">Размытие (blur):</label>
-            <input type="range" id="blurValue" min="0" max="20" value="0" oninput="blurChange()" onchange="blurChange()">
-            <span id="blurText">0px</span>
+        <div class="controls-panel">
+            <h3 style="margin-top: 0; color: #2c3e50;">Настройки эффектов</h3>
+            
+            <div class="filter-row">
+                <label>Размытие (blur):</label>
+                <input type="range" id="blurValue" min="0" max="20" value="0" oninput="applyFilters()">
+                <span id="blurText">0px</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Яркость:</label>
+                <input type="range" id="brightnessValue" min="0" max="500" value="100" oninput="applyFilters()">
+                <span id="brightnessText">100%</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Контраст:</label>
+                <input type="range" id="contrastValue" min="0" max="500" value="100" oninput="applyFilters()">
+                <span id="contrastText">100%</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Серое фото:</label>
+                <input type="range" id="grayscaleValue" min="0" max="100" value="0" oninput="applyFilters()">
+                <span id="grayscaleText">0%</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Смена цвета:</label>
+                <input type="range" id="hueRotateValue" min="0" max="360" value="0" oninput="applyFilters()">
+                <span id="hueRotateText">0deg</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Инвертировать:</label>
+                <input type="range" id="invertValue" min="0" max="100" value="0" oninput="applyFilters()">
+                <span id="invertText">0%</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Насыщенность:</label>
+                <input type="range" id="saturateValue" min="0" max="500" value="100" oninput="applyFilters()">
+                <span id="saturateText">100%</span>
+            </div>
+
+            <div class="filter-row">
+                <label>Сепия (старина):</label>
+                <input type="range" id="sepiaValue" min="0" max="100" value="0" oninput="applyFilters()">
+                <span id="sepiaText">0%</span>
+            </div>
+
+            <button class="reset-btn" onclick="document.querySelectorAll('input[type=range]').forEach(i => i.value = i.defaultValue); applyFilters();">Сбросить все фильтры</button>
         </div>
 
-        <div class="image-container">
-            <img id="targetImg" src="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\lab5\i.jpg" alt="Цветное изображение">
+        <div class="image-panel">
+            <img id="targetImg" src="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\lab5\i.jpg" alt="Интерактивное изображение">
         </div>
     </main>
 
