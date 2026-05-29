@@ -3,262 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Соловьев Алексей Валентинович. Лабораторные работы по WEB-программированию</title>
+    <title>Соловьев Алексей Валентинович</title>
     <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
-    <link rel="icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\photo_5242615177071499852_y.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\iconn.jpg" type="image/x-icon">
 
     <script>
         function showSum() {
-            let inputA = document.getElementById('numberA');
-            let inputB = document.getElementById('numberB');
-
-            inputA.style.color = "";
-            inputA.style.borderColor = "";
-            inputB.style.color = "";
-            inputB.style.borderColor = "";
-
-            if (inputA.value === "" || isNaN(inputA.value)) {
-                alert("Ошибка ввода: первое значение должно быть числом!");
-                inputA.style.color = "red";
-                inputA.style.borderColor = "red";
-                inputA.focus();
-                inputA.select();
-                return;
-            }
-
-            if (inputB.value === "" || isNaN(inputB.value)) {
-                alert("Ошибка ввода: второе значение должно быть числом!");
-                inputB.style.color = "red";
-                inputB.style.borderColor = "red";
-                inputB.focus();
-                inputB.select();
-                return;
-            }
+            let inputA = document.getElementById('numberA')
+            let inputB = document.getElementById('numberB')
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a + b;
-            alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
+            alert('Сумма '+ a +' и '+ b +' равна ' + result);
         }
-
-        function showDifference() {
-            let inputA = document.getElementById('numberA');
-            let inputB = document.getElementById('numberB');
-
-            inputA.style.color = "";
-            inputA.style.borderColor = "";
-            inputB.style.color = "";
-            inputB.style.borderColor = "";
-
-            if (inputA.value === "" || isNaN(inputA.value)) {
-                alert("Ошибка ввода: первое значение должно быть числом!");
-                inputA.style.color = "red";
-                inputA.style.borderColor = "red";
-                inputA.focus();
-                inputA.select();
-                return;
-            }
-
-            if (inputB.value === "" || isNaN(inputB.value)) {
-                alert("Ошибка ввода: второе значение должно быть числом!");
-                inputB.style.color = "red";
-                inputB.style.borderColor = "red";
-                inputB.focus();
-                inputB.select();
-                return;
-            }
+        function showAuthor() {
+            let author = 'Автор страницы: \nКрюков Василий Александрович'
+            alert(author)
+        }
+        function nizclick() {
+            let x = 'Добро пожаловать! \nВы находитесь на тестовой странице'
+            alert(x)
+        }
+        function showRazn() {
+            let inputA = document.getElementById('numberA')
+            let inputB = document.getElementById('numberB')
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a - b;
-            alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+            alert('Сумма '+ a +' и '+ b +' равна ' + result);
         }
-
-        function showProduct() {
-            let inputA = document.getElementById('numberA');
-            let inputB = document.getElementById('numberB');
-
-            inputA.style.color = "";
-            inputA.style.borderColor = "";
-            inputB.style.color = "";
-            inputB.style.borderColor = "";
-
-            if (inputA.value === "" || isNaN(inputA.value)) {
-                alert("Ошибка ввода: первое значение должно быть числом!");
-                inputA.style.color = "red";
-                inputA.style.borderColor = "red";
-                inputA.focus();
-                inputA.select();
-                return;
-            }
-
-            if (inputB.value === "" || isNaN(inputB.value)) {
-                alert("Ошибка ввода: второе значение должно быть числом!");
-                inputB.style.color = "red";
-                inputB.style.borderColor = "red";
-                inputB.focus();
-                inputB.select();
-                return;
-            }
+        function showProizv() {
+            let inputA = document.getElementById('numberA')
+            let inputB = document.getElementById('numberB')
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a * b;
             alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
         }
-
-        function showDivision() {
+        function showDiv() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
 
-            inputA.style.color = "";
-            inputA.style.borderColor = "";
-            inputB.style.color = "";
-            inputB.style.borderColor = "";
-
-            if (inputA.value === "" || isNaN(inputA.value)) {
-                alert("Ошибка ввода: первое значение должно быть числом!");
-                inputA.style.color = "red";
-                inputA.style.borderColor = "red";
-                inputA.focus();
-                inputA.select();
-                return;
-            }
-
-            if (inputB.value === "" || isNaN(inputB.value)) {
-                alert("Ошибка ввода: второе значение должно быть числом!");
-                inputB.style.color = "red";
-                inputB.style.borderColor = "red";
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            if(b == 0) {
+                alert('На ноль делить нельзя!');
                 inputB.focus();
                 inputB.select();
+                inputB.style.color = 'red'
+                inputB.style.borderColor= 'red'
                 return;
             }
+
+            if(isNaN(a)) {
+                alert('Введите числовое значение в первое поле');
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'red'
+                inputB.style.borderColor= 'red'
+                return
+            }
+
+            inputB.style.color = '';
+            inputB.style.borderColor= '';
+
+            let result = a/b;
+            alert(a + " / " + b + " = " + result);
+        }
+        function showStep() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
 
-            if (b === 0) {
-                alert("Ошибка: нельзя делить на ноль! Введите другое второе число.");
-                inputB.style.color = "red";
-                inputB.style.borderColor = "red";
-                inputB.focus();
-                inputB.select();
-                return;
-            }
-
-            let result = a / b;
-            alert('Отношение ' + a + ' к ' + b + ' равно ' + result);
-        }
-
-        // НОВАЯ ФУНКЦИЯ ДЛЯ ВОЗВЕДЕНИЯ В СТЕПЕНЬ
-        function showExponentiation() {
-            let inputA = document.getElementById('numberA');
-            let inputB = document.getElementById('numberB');
-
-            inputA.style.color = "";
-            inputA.style.borderColor = "";
-            inputB.style.color = "";
-            inputB.style.borderColor = "";
-
-            if (inputA.value === "" || isNaN(inputA.value)) {
-                alert("Ошибка ввода: первое значение должно быть числом!");
-                inputA.style.color = "red";
-                inputA.style.borderColor = "red";
+            if (isNaN(a)) {
+                alert("Первое значение не является числом");
                 inputA.focus();
-                inputA.select();
                 return;
             }
-
-            if (inputB.value === "" || isNaN(inputB.value)) {
-                alert("Ошибка ввода: второе значение должно быть числом!");
-                inputB.style.color = "red";
-                inputB.style.borderColor = "red";
+            if (isNaN(b)) {
+                alert("Второе значение не является числом");
                 inputB.focus();
-                inputB.select();
                 return;
             }
-
-            let a = parseInt(inputA.value);
-            let b = parseInt(inputB.value);
-            
-            // Вычисление степени: первое число в степени второго
-            let result = a ** b; 
-            alert('Число ' + a + ' в степени ' + b + ' равно ' + result);
+            if (a == 0 && b == 0) {
+                alert("Ошибка: 0 в степени 0 не определено");
+                return;
+            }
+             let result = a ** b;
+                alert(a + " в степени " + b + " = " + result);
         }
-
-        function showAuthor(){
-            let author = 'Автор страницы: \nСоловьев Алексей Валентинович';
-            alert(author);
-        }
-
-        function showWelcome() {
-            alert("Приветствую вас на моей странице!\nДевиз: Через тернии к звёздам.");
+        function changeOutput(buttonNum, backColor, textColor) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
         }
     </script>
 
     <style>
         .message {
-            display: inline-block;         
-            width: 250px;                   
-            height: 100px;                  
-            background-color: #f0f4f8;      
-            border: 2px solid #3498db;    
-            border-radius: 8px;             
-            padding: 15px;                 
-            margin: 10px;                   
-            box-sizing: border-box;         
-            font-family: Arial, sans-serif; 
-            color: #2c3e50;                 
-            vertical-align: top;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            width: 300px;
+            height: 50px;
+            background-color: lightblue;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgb(168, 192, 206);
+            display: inline-block;
         }
-
-        .message:hover {
-            background-color: #e2eaf0;
-        }
-
-        header {
-            cursor: pointer;
-        }
-
-        footer {
-            cursor: help;
-        }
-
-        input {
-            padding: 5px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            outline: none;
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
         }
     </style>
+
 </head>
+
 <body>
     <header onclick="showAuthor()">
-        <hr>
         НГТУ, ФБ, Лабораторная работа 5
-        <hr>
     </header>
 
     <main>
-        <div style="margin: 20px 10px;">
-            <label>Первое число: <input type="number" value="5154" id="numberA"></label><br><br>
-            <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+        <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
+        <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+        <!-- <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div> -->
+        <div class="message" onclick="showSum()">Найти сумму чисел</div>
+
+        <div class="message" onclick="showRazn()">Найти разность чисел</div>
+        <div class="message" onclick="showProizv()">Найти произведение</div>
+
+        <div class="message" onclick="showDiv()">Найти отношение чисел</div>
+        <div class="message" onclick="showStep()">Возвести в степень</div>
+
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'blue', 'white')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'orange', 'black')">
         </div>
 
-        <div class="message" onclick="showSum()">Найти сумму чисел</div>
-        <div class="message" onclick="showDifference()">Найти разность чисел</div>
-        <div class="message" onclick="showProduct()">Найти произведение</div>
-        <div class="message" onclick="showDivision()">Найти отношение чисел</div>
-        <div class="message" onclick="showExponentiation()">Возвести в степень</div>
-        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div id="output"></div>
+
+
     </main>
-    
-    <footer ondblclick="showWelcome()">
-         <hr>
-         &copy; Соловьев Алексей, ФБИ-41 2 курс, 2026
+
+    <footer ondblclick="nizclick()">
+        &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
     </footer>
+
 </body>
 </html>
