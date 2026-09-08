@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Соловьев Алексей Валентинович. Лабораторные работы по WEB-программированию</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="favicon.jpg" type="image/x-icon">
+
+    <style>
+        #mtable {
+            border: 2px solid #333;       
+            border-radius: 8px;           
+            padding: 15px 25px;          
+            display: inline-block;        
+            margin: 20px 0;               
+            background-color: #f9f9f9;    
+        }
+
+       
+        .table-row {
+            padding: 4px 0;
+            font-size: 18px;
+            font-family: monospace;       
+        }
+    </style>
+
+    <script>
+        function showMutipleTable() {
+            let tbl = document.getElementById('mtable');
+            tbl.innerHTML = '<h1>Таблица умножения</h1>';
+            
+            for (let i = 1; i <= 10; i++) {
+                let s = `<div class="table-row">${i} * 7 = ${i * 7}</div>`;
+                tbl.innerHTML += s; 
+            }
+        }
+    </script>
+</head>
+<body onload="showMutipleTable()">
+    <header>
+        <hr>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <div id="mtable"></div>
+    </main>
+    
+    <footer>
+        <hr>
+        &copy; Соловьев Алексей, ФБИ-41 2 курс, 2026
+    </footer>
+</body>
+</html>
