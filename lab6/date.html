@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Соловьев Алексей Валентинович. Лабораторная 6. Дата-время</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.ico">
+    <script>
+    
+        function showDate() {
+            const out = document.getElementById('current-date');
+            const today = new Date();
+            out.innerHTML = today.toLocaleString('ru-RU');
+        }
+
+        function showLocalizedDates() {
+            const localesList = [
+                { locale: 'ru-RU', label: 'Дата и время для русской локали' },
+                { locale: 'en-ZA', label: 'Дата и время для локали ЮАР' },
+                { locale: 'ar-EG', label: 'Дата и время для локали Египта' },
+                { locale: 'el-GR', label: 'Дата и время для греческой локали' },
+                { locale: 'ur-PK', label: 'Дата и время для пакистанской локали' },
+                { locale: 'zh-CN', label: 'Дата и время для китайской локали' }
+            ];
+
+            const today = new Date();
+            const container = document.getElementById('locales');
+
+            for (let i = 0; i < localesList.length; i++) {
+                container.innerHTML += `
+                    <div class="locale-line">
+                        ${localesList[i].label}: ${today.toLocaleString(localesList[i].locale)}
+                    </div>
+                `;
+            }
+        }
+
+        let colorTimerNum;
+
+        function changeColors() {
+            const header = document.getElementsByTagName('header')[0];
+            const rgb = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            header.style.color = rgb;
+        }
+
+        function startChangeColors() {
+            changeColors();
+            colorTimerNum = setInterval(changeColors, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled = false;
+        }
+
+        function stopChangeColors() {
+            clearInterval(colorTimerNum);
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('stop-btn').disabled = true;
+        }
+
+        let dateTimerNum;
+
+        function startUpdateDate() {
+            showDate();
+            dateTimerNum = setInterval(showDate, 1000);
+            document.getElementById('start-date-btn').disabled = true;
+            document.getElementById('stop-date-btn').disabled = false;
+        }
+
+        function stopUpdateDate() {
+            clearInterval(dateTimerNum);
+            document.getElementById('start-date-btn').disabled = false;
+            document.getElementById('stop-date-btn').disabled = true;
+        }
+
+        function initPage() {
+            showDate();
+            showLocalizedDates();
+        }
+    </script>
+</head>
+<body onload="initPage()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1>Дата и время</h1>
+
+        <div id="current-date" class="current-date"></div>
+
+        <div class="btn-group">
+            <button id="start-date-btn" onclick="startUpdateDate()">Обновлять время</button>
+            <button id="stop-date-btn" onclick="stopUpdateDate()" disabled>Остановить обновление времени</button>
+        </div>
+
+        <h2>Дата и время в разных локалях</h2>
+        <div id="locales"></div>
+
+        <h2>Таймер смены цвета заголовка</h2>
+        <div class="btn-group">
+            <button id="start-btn" onclick="startChangeColors()">Старт</button>
+            <button id="stop-btn" onclick="stopChangeColors()" disabled>Стоп</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
+    </footer>
+</body>
+</html>
