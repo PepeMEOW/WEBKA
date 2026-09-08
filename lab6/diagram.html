@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Соловьев Алексей Валентинович. Лабораторная 6. Диаграмма</title>
+    <link rel="stylesheet" href="C:\Users\Alexe\OneDrive\Рабочий стол\Конспекты\Вебка\WEBKA\main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.ico">
+    <script>
+        function showDiagram() {
+            // данные для столбцов диаграммы
+            const data = [36, 86, 55, 28, 92, 60, 41, 17, 9, 43];
+            // цвет для каждого столбца
+            const colors = [
+                '#2ecc71', '#9b59b6', '#c9b458', '#3498db', '#e91e63',
+                '#a0522d', '#673ab7', '#c5e17a', '#556b2f', '#c0392b'
+            ];
+
+            const diag = document.getElementById('diag');
+            const bars = document.getElementsByClassName('bar');
+
+            // высота диаграммы (контейнера), используем для масштабирования
+            const diagHeight = diag.clientHeight;
+
+            // максимальное значение в массиве данных
+            const maxData = Math.max(...data);
+
+            // коэффициент масштабирования: самый большой столбец
+            // займёт примерно 90% высоты диаграммы
+            const k = diagHeight / maxData * 0.9;
+
+            for (let i = 0; i < data.length; i++) {
+                bars[i].style.height = k * data[i] + 'px';
+                bars[i].style.backgroundColor = colors[i];
+                bars[i].innerHTML = data[i];
+            }
+        }
+    </script>
+</head>
+<body onload="showDiagram()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1>Диаграмма</h1>
+        <div id="diag">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
+    </footer>
+</body>
+</html>
