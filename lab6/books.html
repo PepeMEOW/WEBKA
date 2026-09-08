@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Соловьев Алексей Валентинович. Лабораторная 6. Книги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.ico">
+    <script src="books.js"></script>
+    <script>
+        function showBooks() {
+            const bookList = document.getElementById('bookList');
+
+            for (let i = 0; i < books.length; i++) {
+                const book = books[i];
+
+                let cssClasses = 'book';
+                if (book.bestseller) {
+                    cssClasses += ' bestseller';
+                }
+                if (!book.inStock) {
+                    cssClasses += ' out-of-stock';
+                }
+
+                bookList.innerHTML += `
+                    <div class="${cssClasses}">
+                        ${book.bestseller ? '<span class="badge">Хит продаж</span>' : ''}
+                        <b>${book.author}.</b>
+                        <i>${book.name}</i>
+                        &mdash; ${book.publicationYear}
+                        <div class="price">Цена: ${book.price} ₽</div>
+                        ${!book.inStock ? '<div class="stock-note">Этой книги сейчас нет в наличии</div>' : ''}
+                    </div>
+                `;
+            }
+        }
+    </script>
+</head>
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1>Список книг</h1>
+        <div id="bookList"></div>
+    </main>
+
+    <footer>
+        &copy; Соловьев Алексей, ФБИ-41, 2 курс, 2026
+    </footer>
+</body>
+</html>
